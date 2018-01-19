@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.000">
+    <TriggerPackage>
+        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>essence/XP tracker</name>
+            <script>if gmcp.Char.Status.level == &quot;Demigod&quot; then
+	if not currentexp then
+		currentexp = tonumber(gmcp.Char.Vitals.essence)
+		cecho(string.format(&quot;&lt;deep_sky_blue&gt; [ &quot;..currentexp..&quot; ] &quot;))
+	else
+		if tonumber(gmcp.Char.Vitals.essence) &gt; currentexp then
+ 			differencexp = tonumber(gmcp.Char.Vitals.essence) - currentexp
+ 			currentexp = tonumber(gmcp.Char.Vitals.essence)
+ 			cecho(string.format(&quot;&lt;deep_sky_blue&gt; [ &quot;..currentexp..&quot; ] &lt;aquamarine&gt;{ + &quot;..differencexp.. &quot; } &quot;))
+		elseif tonumber(gmcp.Char.Vitals.essence) &lt; currentexp then
+ 			differencexp = currentexp - tonumber(gmcp.Char.Vitals.essence)
+ 			currentexp = tonumber(gmcp.Char.Vitals.essence)
+			cecho(string.format(&quot;&lt;deep_sky_blue&gt; [ &quot;..currentexp..&quot; ] &lt;a_red&gt;{ &quot;..differencexp.. &quot; } &quot;))
+		else
+ 			cecho(string.format(&quot;&lt;deep_sky_blue&gt; [ &quot;..currentexp..&quot; ] &quot;))
+		end
+	end
+else
+	if not currentxp then
+		currentxp = tonumber(gmcp.Char.Vitals.nl)
+		cecho(string.format(&quot;&lt;deep_sky_blue&gt; [ &quot;..currentxp..&quot; ] &quot;))
+	else
+		if tonumber(gmcp.Char.Vitals.nl) &gt; currentxp then
+			diffxp = tonumber(gmcp.Char.Vitals.nl) - currentxp
+			currentxp = tonumber(gmcp.Char.Vitals.nl)
+			cecho(string.format(&quot;&lt;deep_sky_blue&gt; [ &quot; ..currentxp..&quot; ] &lt;aquamarine&gt;{ + &quot; ..diffxp.. &quot; } &quot;))
+		elseif tonumber(gmcp.Char.Vitals.nl) &lt; currentxp then
+			diffxp = currentxp - tonumber(gmcp.Char.Vitals.nl)
+			currentxp = tonumber(gmcp.Char.Vitals.nl)
+			cecho(string.format(&quot;&lt;deep_sky_blue&gt; [ &quot; ..currentxp..&quot; ] &lt;a_red&gt;{ &quot; ..diffxp.. &quot; } &quot;))
+		else
+			cecho(string.format(&quot;&lt;deep_sky_blue&gt; [ &quot; ..currentxp..&quot; ] &quot;))
+		end
+	end
+end</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>return isPrompt()</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>4</integer>
+            </regexCodePropertyList>
+        </Trigger>
+    </TriggerPackage>
+</MudletPackage>
