@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.000">
+    <TriggerPackage>
+        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="yes" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>deepWounds</name>
+            <script>local bodypart, wounds = matches[2], matches[3]
+
+if bodypart == &quot;Head&quot; then
+	if wounds == &quot;no&quot; then
+		warrior.wounds.head = &quot;None&quot;
+	else
+		warrior.wounds.head = wounds
+	end
+elseif bodypart == &quot;Chest&quot; then
+	if wounds == &quot;no&quot; then
+		warrior.wounds.chest = &quot;None&quot;
+	else
+		warrior.wounds.chest = wounds
+	end
+elseif bodypart == &quot;Gut&quot; then
+	if wounds == &quot;no&quot; then
+		warrior.wounds.gut = &quot;None&quot;
+	else
+		warrior.wounds.gut = wounds
+	end
+elseif bodypart == &quot;Left arm&quot; then
+	if wounds == &quot;no&quot; then
+		warrior.wounds.LArm = &quot;None&quot;
+	else
+		warrior.wounds.LArm = wounds
+	end
+elseif bodypart == &quot;Right arm&quot; then
+	if wounds == &quot;no&quot; then
+		warrior.wounds.RArm = &quot;None&quot;
+	else
+		warrior.wounds.RArm = wounds
+	end
+elseif bodypart == &quot;Left leg&quot; then
+	if wounds == &quot;no&quot; then
+		warrior.wounds.LLeg = &quot;None&quot;
+	else
+		warrior.wounds.LLeg = wounds
+	end
+elseif bodypart == &quot;Right leg&quot; then
+	if wounds == &quot;no&quot; then
+		warrior.wounds.RLeg = &quot;None&quot;
+	else
+		warrior.wounds.RLeg = wounds
+	end
+end</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>20</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>^\* (.*) has (.*) wounds\.$</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>1</integer>
+            </regexCodePropertyList>
+        </Trigger>
+        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>health</name>
+            <script>local target, health, max = matches[2], matches[3], matches[4]
+local percent = math.floor(((health/max) * 100) + 0.5)
+
+warrior.target.health = percent</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>^You glance over (\w+) and see that his health is at (\d+)/(\d+)\.$</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>1</integer>
+            </regexCodePropertyList>
+        </Trigger>
+        <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>bruising</name>
+            <script>local subject, bruising = matches[2], matches[3]
+
+warrior.target.bruising = bruising</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>^(She|He) is bruised for (\d+) health\.$</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>1</integer>
+            </regexCodePropertyList>
+        </Trigger>
+        <Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>reporting</name>
+            <script>warrior.prompting()</script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList>
+                <string>return isPrompt()</string>
+            </regexCodeList>
+            <regexCodePropertyList>
+                <integer>4</integer>
+            </regexCodePropertyList>
+        </Trigger>
+    </TriggerPackage>
+    <TimerPackage/>
+    <AliasPackage>
+        <Alias isActive="yes" isFolder="no">
+            <name>promptToggle</name>
+            <script>if warrior.prompt == true then
+	warrior.prompt = false
+	disableTrigger(&quot;reporting&quot;)
+	cecho(&quot;&lt;red&gt;Disabled Reporting\n&quot;)
+else
+	warrior.prompt = true
+	enableTrigger(&quot;reporting&quot;)
+	cecho(&quot;&lt;green&gt;Enabled Reporting\n&quot;)
+end</script>
+            <command></command>
+            <packageName></packageName>
+            <regex>^wprompt$</regex>
+        </Alias>
+    </AliasPackage>
+    <ActionPackage/>
+    <ScriptPackage>
+        <Script isActive="yes" isFolder="no">
+            <name>warriorPrompt</name>
+            <packageName></packageName>
+            <script>warrior = {
+	target = {
+		health = &quot;&quot;,
+		bruising = &quot;&quot;,
+	},
+	wounds = {
+		head = &quot;&quot;,
+		chest = &quot;&quot;,
+		gut = &quot;&quot;,
+		LArm = &quot;&quot;,
+		RArm = &quot;&quot;,
+		LLeg = &quot;&quot;,
+		RLeg = &quot;&quot;
+	},
+	prompt = false
+}
+
+function warrior.prompting()
+	cecho(&quot;\n&lt;dark_violet&gt;|&lt;LightGoldenrod&gt;H: &quot;)
+	if warrior.target.health &gt; 50 then
+		cecho(&quot;&lt;red&gt;&quot;..warrior.target.health)
+	elseif warrior.health &lt; 50 and warrior.target.health ~= 0 then
+		cecho(&quot;&lt;green&gt;&quot;..warrior.target.health)
+	else
+		cecho(&quot;&lt;grey&gt;&quot;..warrior.target.health)
+	end
+	cecho(&quot;&lt;dark_violet&gt;|&lt;LightGoldenrod&gt;Bru: &quot;)
+	cecho(&quot;&lt;MediumSeaGreen&gt;&quot;..warrior.target.bruising)
+	cecho(&quot;&lt;dark_violet&gt;|&lt;LightGoldenrod&gt;Head: &quot;)
+	if warrior.wounds.head == &quot;critical&quot; then
+		cecho(&quot;&lt;green&gt;C&quot;)
+	elseif warrior.wounds.head == &quot;heavy&quot; then
+		cecho(&quot;&lt;orange&gt;H&quot;)
+	elseif warrior.wounds.head == &quot;light&quot; then
+		cecho(&quot;&lt;yellow&gt;L&quot;)
+	elseif warrior.wounds.head == &quot;None&quot; then
+		cecho(&quot;&lt;red&gt;N&quot;)
+	end
+	cecho(&quot;&lt;dark_violet&gt;|&lt;LightGoldenrod&gt;Chest: &quot;)
+	if warrior.wounds.chest == &quot;critical&quot; then
+		cecho(&quot;&lt;green&gt;C&quot;)
+	elseif warrior.wounds.chest == &quot;heavy&quot; then
+		cecho(&quot;&lt;orange&gt;H&quot;)
+	elseif warrior.wounds.chest == &quot;light&quot; then
+		cecho(&quot;&lt;yellow&gt;L&quot;)
+	elseif warrior.wounds.chest == &quot;None&quot; then
+		cecho(&quot;&lt;red&gt;N&quot;)
+	end
+	cecho(&quot;&lt;dark_violet&gt;|&lt;LightGoldenrod&gt;Gut: &quot;)
+	if warrior.wounds.gut == &quot;critical&quot; then
+		cecho(&quot;&lt;green&gt;C&quot;)
+	elseif warrior.wounds.gut == &quot;heavy&quot; then
+		cecho(&quot;&lt;orange&gt;H&quot;)
+	elseif warrior.wounds.gut == &quot;light&quot; then
+		cecho(&quot;&lt;yellow&gt;L&quot;)
+	elseif warrior.wounds.gut == &quot;None&quot; then
+		cecho(&quot;&lt;red&gt;N&quot;)
+	end
+	cecho(&quot;&lt;dark_violet&gt;|&lt;LightGoldenrod&gt;RArm: &quot;)
+	if warrior.wounds.RArm == &quot;critical&quot; then
+		cecho(&quot;&lt;green&gt;C&quot;)
+	elseif warrior.wounds.RArm == &quot;heavy&quot; then
+		cecho(&quot;&lt;orange&gt;H&quot;)
+	elseif warrior.wounds.RArm == &quot;light&quot; then
+		cecho(&quot;&lt;yellow&gt;L&quot;)
+	elseif warrior.wounds.RArm == &quot;None&quot; then
+		cecho(&quot;&lt;red&gt;N&quot;)
+	end
+	cecho(&quot;&lt;dark_violet&gt;|&lt;LightGoldenrod&gt;LArm: &quot;)
+	if warrior.wounds.LArm == &quot;critical&quot; then
+		cecho(&quot;&lt;green&gt;C&quot;)
+	elseif warrior.wounds.LArm == &quot;heavy&quot; then
+		cecho(&quot;&lt;orange&gt;H&quot;)
+	elseif warrior.wounds.LArm == &quot;light&quot; then
+		cecho(&quot;&lt;yellow&gt;L&quot;)
+	elseif warrior.wounds.LArm == &quot;None&quot; then
+		cecho(&quot;&lt;red&gt;N&quot;)
+	end
+	cecho(&quot;&lt;dark_violet&gt;|&lt;LightGoldenrod&gt;RLeg: &quot;)
+	if warrior.wounds.RLeg == &quot;critical&quot; then
+		cecho(&quot;&lt;green&gt;C&quot;)
+	elseif warrior.wounds.RLeg == &quot;heavy&quot; then
+		cecho(&quot;&lt;orange&gt;H&quot;)
+	elseif warrior.wounds.RLeg == &quot;light&quot; then
+		cecho(&quot;&lt;yellow&gt;L&quot;)
+	elseif warrior.wounds.RLeg == &quot;None&quot; then
+		cecho(&quot;&lt;red&gt;N&quot;)
+	end
+	cecho(&quot;&lt;dark_violet&gt;|&lt;LightGoldenrod&gt;LLeg: &quot;)
+	if warrior.wounds.LLeg == &quot;critical&quot; then
+		cecho(&quot;&lt;green&gt;C&quot;)
+	elseif warrior.wounds.LLeg == &quot;heavy&quot; then
+		cecho(&quot;&lt;orange&gt;H&quot;)
+	elseif warrior.wounds.LLeg == &quot;light&quot; then
+		cecho(&quot;&lt;yellow&gt;L&quot;)
+	elseif warrior.wounds.LLeg == &quot;None&quot; then
+		cecho(&quot;&lt;red&gt;N&quot;)
+	end
+	cecho(&quot;&lt;dark_violet&gt;|&quot;)
+end
+
+</script>
+            <eventHandlerList/>
+        </Script>
+    </ScriptPackage>
+    <KeyPackage/>
+</MudletPackage>
